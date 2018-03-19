@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+<script>
+function previewFile(){
+
+   var preview = document.querySelector('img'); 
+   var file    = document.querySelector('input[type=file]').files[0];
+   var reader  = new FileReader();
+
+   reader.onloadend = function () {
+       preview.src = reader.result;
+   }
+   if (file) {
+       reader.readAsDataURL(file); 
+   } else {
+       preview.src = "";
+   }
+}
+
+  previewFile();  
+
+</script>
+
+
+
+<div class="col">
+	<div class= "col-lg">
+<input type="file" onchange="previewFile()"><br>
+<img src="body.jpg" height="200" alt="Image preview...">
+<a href="home.html">update image </a>
+</div>
+</div>
+
+
+<textarea id="myTextarea">
+input something...</textarea>
+
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTextarea").value;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+
+</body>
+</html>

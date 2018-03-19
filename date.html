@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>A demonstration of how to access a Datetime field</h3>
+
+<input type="datetime" id="myDatetime" value="2014-02-06T10:57Z">
+
+<p>Click the button to get the date and time of the datetime field.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> input elements with type="datetime" do not show as any datetime field/calendar in any of the major browsers, except Safari.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDatetime").value;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+</body>
+</html>

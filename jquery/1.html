@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html>
+<head>
+<body>
+<link href="imageloader.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="jquery-1.7.min.js"></script>
+<script type="text/javascript" src="imageloader.min.js"></script>
+<form class="imageloaderForm" method="post" action="save.php">
+   <input type="button" class="imageloaderBrowse" value="Browse Images">
+   <input type="button" class="imageloaderClear" value="Clear All">
+   <div class="imageloaderFiles" />
+   <input type="submit" value="Send Form">
+</form>
+   ImageLoader.init({
+      limit: 5, // files limit
+      resize: true, // resize images or not (true/false)
+      moveSpeed: 100, // animation speed during sorting
+      maxWidth: 500, // max width if 'resize' enabled
+      maxHeight: 500, // max height if 'resize' enabled
+      isJpeg: false, // images format is JPEG or PNG with alpha channel (true/false)
+      jpegQuality: 0.8, // jpeg quality of images if 'isJpeg' enabled (from 0 to 1)
+      jpegBg: '#FFFFFF', // background fill color if 'isJpeg' enabled
+      form: 'imageloaderForm', // form class name
+      files: 'imageloaderFiles', // files container class name
+      file: 'imageloaderFile', // file class name
+      image: 'imageloaderImage', // image class name
+      ghost: 'imageloaderGhost', // file ghost class name when sorting
+      btnBrowse: 'imageloaderBrowse', // browse button class name
+      btnClear: 'imageloaderClear', // clear button class name (optional)
+      btnRotate: 'imageloaderRotate', // rotate button class name
+      btnRemove: 'imageloaderRemove', // remove button class name
+      rotateTitle: 'Rotate', // rotate button title
+      removeTitle: 'Remove', // remove button title
+      filter: ['.jpeg', '.jpg', '.png', '.gif', '.bmp', '.ico'], // files type filter
+      onSubmit: function(form){ // form submit handler (optional)
+         // ... validate the form if it's needed
+         return true; // return false to prevent uploading the form
+      },
+      onFinish: function(form, data){ // form uploaded handler (optional)
+         alert('ImageLoader: Form has been uploaded');
+         // ... redirect to another page or make something with returned data
+      },
+      onError: function(error){ // form error handler (optional)
+         alert('ImageLoader: ' + error);
+      }
+   });
+})
+$i = 1;
+while (list ($item, $value) = each ($_FILES)){
+   if(substr($item, 0, 11) == 'imageloader'){
+      $fileName = $i.'.'.substr($item, 11, 3); // make file name
+      move_uploaded_file($value['tmp_name'], $fileName); // save file
+      $i++;
+   }
+}
+</body>
+</head>
+</html>

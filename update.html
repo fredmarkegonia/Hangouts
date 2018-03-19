@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Activity</title>
+	<link rel ="stylesheet" href ="bootstrap/css/bootstrap.min.css">
+  </head>
+
+ <style>
+  body {background-color: powderblue;}
+  h1 {color:blue;}
+  p {color: blue;}
+</style>
+
+
+  <body>
+
+
+<div class="col">
+	<div class= "col-lg">
+<label for= "date" >Date</label>
+<div class= "input-group mb-2 mb-sm-0">
+<input type="date" class= "form-control" id="inlineFormAmount" placeholder="date">
+</div>
+
+</body>
+
+<script>
+function previewFile(){
+
+   var preview = document.querySelector('img'); 
+   var file    = document.querySelector('input[type=file]').files[0];
+   var reader  = new FileReader();
+
+   reader.onloadend = function () {
+       preview.src = reader.result;
+   }
+   if (file) {
+       reader.readAsDataURL(file); 
+   } else {
+       preview.src = "";
+   }
+}
+
+  previewFile();  
+
+</script>
+
+<div class="col">
+	<div class= "col-lg">
+<img src="pictures/sir.jpg" width="100"height="100"></div>
+
+<div class="col">
+	<div class= "col-lg">
+<input type="file" onchange="previewFile()"><br>
+<a href="home.html">update image </a>
+</div>
+</div>
+
+
+<textarea id="myTextarea">
+</textarea>
+
+
+<button type="button" onclick="myFunction()">Update</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTextarea").value;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+</div>
+
+</body>
+</html>
