@@ -1,4 +1,4 @@
 # Hangouts
-# egoniaapps
-# egoniaapps
-# egoniaapss
+# Nawong ko lubot
+# Bayot Ko!!
+# Ayaw saba mama
